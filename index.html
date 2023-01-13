@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+</head>
+  
+<body>
+<style>
+html, body {
+    margin: 0;
+    height: 100%;
+}
+.leaflet-container {
+	background: #436270;
+	outline-offset: 1px;
+}
+
+#map { height: 100%; }
+</style>
+
+<div id="map"></div>
+
+<script>
+
+// Add map, set default view
+var map = L.map('map', {
+    crs: L.CRS.Simple,
+    minZoom: -3,
+    center: [0,0]
+}).setView([-1400,2000], -2);
+
+// Add tile layer
+var t = L.tileLayer('tiles/{z}/{x}/tile-{y}.png', {
+    noWrap: true,
+    tileSize: L.point(4083, 2576),
+    minNativeZoom: 0,
+    maxNativeZoom: 2,
+    minZoom: -3,
+    maxZoom: 3,
+    bounds: [[0,0],[-2575,4082]]
+}).addTo(map);
+
+</script>
+
+</body>
+</html> 
