@@ -31,19 +31,19 @@ html, body {
 // Add map, set default view
 var map = L.map('map', {
     crs: L.CRS.Simple,
-    minZoom: -3,
+    minZoom: -1,
     center: [0,0]
-}).setView([-1400,2000], -2);
+}).setView([-300,500], 0);
 
 // Add tile layer
-var t = L.tileLayer('tiles/{z}/{x}/tile-{y}.png', {
+var t = L.tileLayer('tiles/{z}/{x}/{y}.png', {
     noWrap: true,
-    tileSize: L.point(4083, 2576),
+    tileSize: L.point(1021, 644),
     minNativeZoom: 0,
-    maxNativeZoom: 2,
-    minZoom: -3,
-    maxZoom: 3,
-    bounds: [[0,0],[-2575,4082]]
+    maxNativeZoom: 4,
+    minZoom: -1,
+    maxZoom: 5,
+    bounds: [[0,0],[-643,1020]]
 }).addTo(map);
 
 </script>
