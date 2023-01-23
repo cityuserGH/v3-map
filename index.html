@@ -8,6 +8,9 @@
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
     crossorigin=""></script>
+    <script src="Leaflet.LabelTextCollision.js"></script>
+    <script src="Canvas-TextPath.js"></script>
+    <script src="Leaflet.streetlabels.js"></script>
 </head>
   
 <body>
@@ -28,11 +31,28 @@ html, body {
 
 <script>
 
+var streetLabelsRenderer = new L.StreetLabels({
+      collisionFlg : true,
+      propertyName : 'name',
+      showLabelIf: function(layer) {
+        return true; //layer.properties.type == "primary";
+      },
+      fontStyle: {
+        dynamicFontSize: false,
+        fontSize: 100,
+        fontSizeUnit: "px",
+        lineWidth: 4.0,
+        fillStyle: "black",
+        strokeStyle: "white",
+      },
+    })
+
 // Add map, set default view
 var map = L.map('map', {
     crs: L.CRS.Simple,
     minZoom: -1,
-    center: [0,0]
+    center: [0,0],
+    renderer: streetLabelsRenderer
 }).setView([-300,500], 0);
 
 // Add tile layer
@@ -54,6 +74,31 @@ function onMapClick(e) {
 map.on('click', onMapClick);
 //
 
+var pointList = [
+    [-492.625, 7.375],
+    [-471.75, 184.25],
+    [-364.75, 261.25],
+    [-364.75, 284.25],
+    [-372, 304.5],
+    [-372.25, 316.5],
+    [-371, 322.75],
+    [-365.5, 335],
+    [-350.5, 355],
+    [-328.625, 383],
+    [-324.125, 386.625],
+    [-265, 410.25],
+    [-249.5, 418.625],
+    [-235.75, 434.5],
+    [-161.25, 604.75],
+    [-161.25, 957.25]
+]
+
+var polyline_401 = new L.polyline(pointList, {
+    color: 'red',
+    weight: 8,
+    opacity: 0.5,
+    smoothFactor: 1,
+}).addTo(map)
 
 
 </script>
