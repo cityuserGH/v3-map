@@ -46,12 +46,11 @@ var t = L.tileLayer('tiles/{z}/{x}/{y}.png', {
     bounds: [[0,0],[-643,1020]]
 }).addTo(map);
 
-var marker = L.circle([0,0], {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.5,
-    radius: 10
-}).addTo(map)
+function onMapClick(e) {
+    alert("You clicked the map at " + e.latlng);
+}
+
+map.on('click', onMapClick);
 
 </script>
 
