@@ -84,24 +84,20 @@ var popup = L.popup();
 let listString = ""
 let debounce = false
 
-function onMapClick(e) {
+async function onMapClick(e) {
     if (debounce === false) {
         debounce = true
         let initialCoords = e.latlng.toString().split("(")[1].split(")")[0]
         const splitted = initialCoords.split(", ")
-        initialCoords = "[" + splitted[1] + ", " + splitted[0] + "],\n"
+        initialCoords = "[" + splitted[1] + ", " + splitted[0] + "], "
         listString = listString + initialCoords
-        alert(listString)
-        popup
-            .setLatLng(e.latlng)
-            .setContent('Saved')
-            .openOn(map)
-            
+        console.log(listString)       
+        await new Promise(resolve => setTimeout(resolve, 100))
+        debounce = false
     }
     
 }
-map.on('mouseup', onMapClick);
-
+map.on('click', onMapClick);
 //
 
 
