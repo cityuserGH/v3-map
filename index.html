@@ -33,7 +33,7 @@ html, body {
 <script>
 
 var streetLabelsRenderer = new L.StreetLabels({
-      collisionFlg : true,
+      collisionFlg : false,
       propertyName : 'name',
       showLabelIf: function(layer) {
         return true; //layer.properties.type == "primary";
@@ -42,7 +42,7 @@ var streetLabelsRenderer = new L.StreetLabels({
         dynamicFontSize: false,
         fontSize: 15, // was 15
         fontSizeUnit: "px",
-        lineWidth: 15.0, // was 4.0
+        lineWidth: 4.0, // was 4.0
         fillStyle: "black",
         strokeStyle: "white",
       },
