@@ -186,7 +186,7 @@ var roads = {
             [379.875, -138.5], [377.875, -147.25], [377.5, -156.75], [377.375, -239.875], 
         ] } },
         
-        {"type":"Feature", "properties": { "name":"85th Ave", "color":"red" }, "geometry": {"type":"LineString", "coordinates": [
+        {"type":"Feature", "properties": { "name":"85th Ave" }, "geometry": {"type":"LineString", "coordinates": [
             [431.09375, -139.75], [430.8125, -201.75],
         ] } },
     ]
