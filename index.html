@@ -38,6 +38,8 @@ var streetLabelsRenderer = new L.StreetLabels({
       showLabelIf: function(layer) {
         return true; //layer.properties.type == "primary";
       },
+      lineWidth: 10,
+      weight: 10,
       fontStyle: {
         dynamicFontSize: false,
         fontSize: 15,
@@ -45,8 +47,6 @@ var streetLabelsRenderer = new L.StreetLabels({
         lineWidth: 4.0,
         fillStyle: "black",
         strokeStyle: "white",
-        
-        weight: 10,
       },
     })
 
