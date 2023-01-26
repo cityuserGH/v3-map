@@ -106,7 +106,7 @@ L.LabelTextCollision = L.Canvas.extend({
 });
 
 L.StreetLabels = L.LabelTextCollision.extend({
-  options: {
+  options: { // none of this really seems to change much, if anything?
     propertyName: "name",
     showLabelIf: null,
     interactive: true,
@@ -242,6 +242,7 @@ L.StreetLabels = L.LabelTextCollision.extend({
         );
         ctx.fillText(layerText, p.x + offsetX - textLength / 2, p.y + offsetY);
       } else if (layer instanceof L.Polyline) {
+
         var startCoords = layer.getLatLngs()[0];
         var stopCoords = layer.getLatLngs()[layer.getLatLngs().length - 1];
         if (this._getBearing(startCoords, stopCoords) < 0)
@@ -249,7 +250,7 @@ L.StreetLabels = L.LabelTextCollision.extend({
         if (layer._parts) {
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
-          ctx.lineWidth = 3;
+          ctx.lineWidth = 3; // this is for the text stroke width
           layer._parts.forEach(function (part) {
             var pathPoints = [];
             for (var i = 0; i < part.length; i++) {
