@@ -55,8 +55,8 @@ var streetLabelsRenderer = new L.StreetLabels({
 
 // Load the dataset
 var dataset = L.geoJSON(roads, {
-  onEachFeature: onEachFeature,
-  color: color: "#ff0000",
+  onEachFeature: onEachFeature
+  //color: color: "#ff0000"
 })
 
 function onEachFeature(feature, layer) {
