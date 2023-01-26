@@ -60,8 +60,49 @@ var dataset = L.geoJSON(roads, {
   //color: color: "#ff0000"
 })
 
+function highlightFeature(e) {
+  var layer = e.target;
+
+  layer.setStyle({
+    stroke: true,
+    weight: 8,    
+    dashArray: '',
+    opacity: 0.5,
+    color: '#ff3300'
+    
+  });
+
+  if (!L.Browser.ie && !L.Browser.opera) {
+    layer.bringToFront();
+  }
+}
+
+function resetHighlight(e) {
+  dataset.resetStyle(e.target);
+	var layer = e.target;
+
+  layer.setStyle({
+    weight: 4,
+    color: '#3388ff',
+    dashArray: '',
+    fillOpacity: 1
+  });
+}
+
 function onEachFeature(feature, layer) {
   // do something with the features here (bind popups, etc.)
+  /*
+  layer.setStyle({
+    weight: 10,
+    color: 'green',
+    fillOpacity: 0,
+  })
+  */
+
+  layer.on({
+    mouseover: highlightFeature,
+    mouseout: resetHighlight,
+  });
 }
 
 // Add map, set default view
