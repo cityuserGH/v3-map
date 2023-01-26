@@ -33,13 +33,14 @@ html, body {
 <script>
 
 var streetLabelsRenderer = new L.StreetLabels({
-      color : "#ff0000",
+      //color : "#ff0000",
       collisionFlg : true,
       propertyName : 'name',
       showLabelIf: function(layer) {
         return true; //layer.properties.type == "primary";
       },
       fontStyle: {
+        color : "#ff0000",
         dynamicFontSize: false,
         fontSize: 15, // was 15
         fontSizeUnit: "px",
