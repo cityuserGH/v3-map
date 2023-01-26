@@ -48,14 +48,15 @@ var streetLabelsRenderer = new L.StreetLabels({
         fillStyle: "black",
         strokeStyle: "white",
       },
-      lineStyle: {
-        color: "#ff0000",
-      }
+      //lineStyle: {
+        //color: "#ff0000",
+      //}
     })
 
 // Load the dataset
 var dataset = L.geoJSON(roads, {
-  onEachFeature: onEachFeature
+  onEachFeature: onEachFeature,
+  color: color: "#ff0000",
 })
 
 function onEachFeature(feature, layer) {
