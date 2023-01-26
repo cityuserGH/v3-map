@@ -87,6 +87,7 @@ var t = L.tileLayer('tiles/{z}/{x}/{y}.png', {
 L.control.layers({ "Satellite": t /*only 1 can be picked from here, separate with ;*/}, { "Roads": dataset /*can toggle any number, separate with ;*/}).addTo(map)
 
 // for testing
+/*
 var popup = L.popup();
 let listString = ""
 let debounce = false
@@ -105,6 +106,7 @@ async function onMapClick(e) {
     
 }
 map.on('click', onMapClick);
+*/
 //
 
 
