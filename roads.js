@@ -3,6 +3,7 @@
 var roads = {
     "type":"FeatureCollection",
     "name":"roads",
+    "color": "ff0000",
     "features": [
         /*
         {"type":"Feature", "properties": { "name":"ROAD NAME HERE" }, "geometry": {"type":"LineString", "coordinates": [
